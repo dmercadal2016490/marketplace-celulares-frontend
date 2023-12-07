@@ -1,0 +1,69 @@
+nav{
+    background-color: transparent;
+    font-family: 'Segoe UI';
+    color: aquamarine;
+}
+
+.textoNav{
+    font-family: 'Segoe UI';
+    color: aquamarine;
+}
+
+.imagen{
+    height: 75px;
+    width: 75px;
+}
+.imagenUser{
+    height: 50px;
+    width: 50px;
+    border-radius: 150px;
+    margin-top: 5px;
+    position: static;
+}
+
+.texto1{
+    color: white;
+    font-size: 30px;
+    margin-left: 910px;
+}
+
+.textoAdmin{
+    color: white;
+    font-size: 30px;
+    margin-left: 830px;
+}
+
+.imagenModal{
+    height: 240px;
+    width: 180px;
+    float: left;
+}
+
+.modal-header{
+    background-color: #0c0f1d;
+    text-align: center;
+}
+
+.modal-title{
+    color:cornsilk;
+    font-family: Candara;
+}
+
+.btn-close{
+    background-color: white;
+}
+
+.texto2{
+    padding-left: 10px;
+    font-size: 20px;
+    float: left;
+}
+
+form{
+    float: right;
+}
+
+a{
+    margin-left: 25px;
+    font-size: 20px;
+}

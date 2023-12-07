@@ -1,0 +1,190 @@
+<html>
+  <br>
+  <div class="division3">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../../../assets/img/fondo1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../../../assets/img/fondo2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../../../assets/img/fondo2.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+    </div>
+  <br>
+  </div>
+    <p class="text3">Marca</p>
+    <p class="text4">Serie</p>
+    <p class="text5">Precio</p>
+    <p class="text6">Unidades</p>
+    <hr>
+  <div class="division2"   *ngFor="let phones of phones">  
+      <p class="text1">{{phones.marca}}</p>
+      <h3 class="text2">|</h3>
+      <p class="text1">{{phones.serie}}</p>
+      <h3 class="text2">|</h3>
+      <p class="text1">{{phones.precio}}</p>
+      <h3 class="text2">|</h3>
+      <p class="text1">{{phones.unidades}}</p>
+      <h3 class="text2">|</h3>
+      <button class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="obtenerData(phones)">Comprar</button>
+  </div>
+
+
+<!-- Modal de telefono-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{phone.marca}} {{phone.serie}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <img *ngIf="phone.image == null" src="../../../assets/img/phone.png" class="imagenModal">
+        <img *ngIf="phone.image" src="{{uri+'getPhoneImage/'+phone.image}}" class="imagenModal">
+        <p class="bibliografia"></p>
+        <p class="textoModal">Procesador: {{phone.procesador}}</p>
+        <p class="textoModal">Ram: {{phone.ram}}</p>
+        <p class="textoModal">Bateria: {{phone.bateria}}</p>
+        <p class="textoModal">Precio : Q{{phone.precio}}</p>
+        <p class="textoModal">Unidades: {{phone.unidades}}</p>
+        <div *ngIf="phone.unidades == 0" class="alert alert-danger" role="alert">
+            No hay unidades de este telefono para comprar
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button *ngIf="user.role == 'ROLE_USER'" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#comprar">Comprar</button>
+          <button *ngIf="phone.vendedor == user._id" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar Telefono</button>
+          <button *ngIf="user.role != 'ROLE_USER'" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarCopias">Agregar copias</button>
+          <button *ngIf="user.role != 'ROLE_USER'" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#quitarCopias">Quitar copias</button>
+          <button *ngIf="phone.vendedor == user._id" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imagen">Subir Imagen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal para comprar-->
+<div class="modal fade" id="comprar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Comprar unidades de: {{phone.marca}} {{phone.serie}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <h1>Cantidad de unidades</h1>
+                <input [(ngModel)]="phone.unidades" name="unidades" #unidades="ngModel" type="number" placeholder="Unidades">  
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" (click)="comprar()" class="btn btn-success" data-bs-dismiss="modal">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-- Modal para subir imgen-->
+<div class="modal fade" id="imagen" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel">Imagen para: {{phone.marca}} {{phone.serie}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h1>Elije tu imagen</h1>
+        <form #formUpload="ngForm">
+          <label for="inputImage"></label>
+          <input type="file" name="image" id="inputImage" (change)="fileChange($event)" required>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="subirImagen()">Upload</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal para eliminar-->
+<div class="modal fade" id="eliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Telefono</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1>¿Seguro que quieres eliminar el telefono {{phone.marca}} {{phone.serie}}?</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" (click)="deletePhone()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para editar
+<div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header cabecera">
+        <h5 class="modal-title" id="exampleModalLabel">Editar libro: {{libro.titulo}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="division">
+          <p class="texto3">Titulo</p>
+          <input [(ngModel)]="libro.titulo" name="titulo" #titulo="ngModel" type="text" class="input">
+        </div><br>
+        <div class="division">
+          <p class="texto3">Bibliografia</p>
+          <select id="selectLibro" [(ngModel)]="libro.bibliografia" name="bibliografia" #bibliografia="ngModel" class="input">
+            <option *ngFor="let option of optionsRol" [value]="option">{{option}}</option>
+        </select>
+        </div><br>
+        <div class="division">
+          <p class="texto3">Autor</p>
+          <input [(ngModel)]="libro.autor" name="autor" #autor="ngModel" type="text" class="input">
+        </div><br>
+        <div class="division">
+          <p class="texto3">Descripción</p>
+          <input [(ngModel)]="libro.descripcion" name="descripcion" #descripcion="ngModel" type="text" class="input">
+        </div><br>
+        <div class="division">
+          <p class="texto3">Palabras Claves</p>
+          <input [(ngModel)]="libro.palabrasClaves" name="palabrasClaves" #palabrasClaves="ngModel" type="text" class="input">
+        </div><br>
+        <div class="division">
+          <p class="texto3">Temas</p>
+          <input [(ngModel)]="libro.temas" name="temas" #temas="ngModel" type="text" class="input">
+        </div><br>
+        <div class="division">
+          <p class="texto3">Frecuencia</p>
+          <input [(ngModel)]="libro.frecuencia" name="frecuencia" #frecuencia="ngModel" type="text" class="input">
+        </div><br>
+        <div class="division">
+          <p class="texto3">Ejemplares</p>
+          <input [(ngModel)]="libro.ejemplares" name="ejemplares" #ejemplares="ngModel" type="number" class="input">
+        </div><hr>
+        <div *ngIf="message" class="alert alert-danger" role="alert">
+          {{message}}
+        </div>  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="refreshPage()">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateLibro()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>-->

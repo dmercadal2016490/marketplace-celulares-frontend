@@ -1,0 +1,41 @@
+<html>
+    <div class="division">
+        <h2 class="texto2"> AHORRA AL<br>
+            COMPRAR<br> 
+            Y GANA<br> 
+            AL VENDER
+       </h2>
+       <p class="texto3">Los mejores telefonos disponibles</p><hr>
+       <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#iniciarSesion">Iniciar sesion</button><br><hr>
+       <button class="btn btn-primary" routerLink="/register">Crear Cuenta</button>
+    </div>
+    <img class="imagen" src="../../../assets/img/phonesSell.png">
+</html>
+
+<!-- Modal iniciar sesion -->
+<div class="modal fade" id="iniciarSesion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #login="ngForm" (ngSubmit)="onSubmit()" class="texto">
+                <div class="divisionImagen">
+                    <img class="img" src="../../../assets/img/user.png">
+                </div>
+                <input [(ngModel)]="user.username" name="username" type="text" placeholder="Ingrese su Username"><br><br>
+                <div class="divisionImagen">
+                    <img class="img" src="../../../assets/img/password.png">
+                </div>
+                <input [(ngModel)]="user.password" name="password" type="password" placeholder="Ingrese su contraseña"><br><br>
+                <button type="submit" class="btn btn-primary boton button" data-bs-dismiss="modal">Iniciar sesion</button><hr>
+                <div *ngIf="message" class="alert alert-danger" role="alert">
+                    {{message}}
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>

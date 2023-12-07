@@ -1,0 +1,178 @@
+html{
+    min-height: 300vh;
+    background-color: #04334E;
+}
+
+.division2{
+    float: right;
+    align-content: center;
+    height: 80px;
+    width: 980px;
+    background-color: aliceblue;
+    display: inline-block;
+    margin-top: 30px;
+    margin-right: 250px;
+    border-radius: 10px;
+}
+
+.division3{
+    background-color: aliceblue;
+}
+
+.text1{
+    padding-top: 20px;
+    float: left;
+    float: bottom;
+    padding-left: 50px;
+    padding-right: 35px;
+    font-size: 25px;
+    font-family:'Franklin Gothic Medium';
+}
+
+
+.text2{
+    font-family:'Franklin Gothic Medium';
+    padding-top: 0px;
+    float: left;
+    padding-left: 20px;
+    padding-right: 15px;
+    font-size: 50px;
+}
+
+.text3{
+    font-family:'Franklin Gothic Medium';
+    padding-top: 20px;
+    float: left;
+    padding-left: 300px;
+    padding-right: 35px;
+    font-size: 35px;
+    color: #08F175;
+}
+
+.text4{
+    font-family:'Franklin Gothic Medium';
+    padding-top: 20px;
+    float: left;
+    padding-left: 130px;
+    padding-right: 35px;
+    font-size: 35px;
+    color: #08F175;
+}
+
+.text5{
+    font-family:'Franklin Gothic Medium';
+    padding-top: 20px;
+    float: left;
+    padding-left: 50px;
+    padding-right: 35px;
+    font-size: 35px;
+    color: #08F175;
+}
+
+.text6{
+    font-family:'Franklin Gothic Medium';
+    padding-top: 20px;
+    float: left;
+    padding-left: 20px;
+    padding-right: 35px;
+    font-size: 35px;
+    color: #08F175;
+}
+
+.boton{
+    margin-top: 20px;
+}
+
+#cards{
+    margin: 1rem;
+    display: inline-block;
+    margin: 1.5rem;
+    background: white;
+    text-align: left;
+}
+
+.card-header{
+    background: transparent;
+    color: white;
+    text-align: center;
+}
+
+.card{
+    height: 50px;
+    width: 850px;
+    background: transparent;
+    margin-right: 50px;
+    margin-left: 80px;
+    border-style: none;
+}
+
+.imegenDefecto{
+    height: 180px;
+    width: 120px;
+}
+
+.imegenLibro{
+    height: 180px;
+    width: 120px;
+}
+
+
+
+.imagenModal{
+    height: 180px;
+    width: 130px;
+    float: left;
+}
+
+.textoModal{
+    color: black;
+    font-size: 20px;
+    padding-left: 150px;
+}
+
+.bibliografia{
+    color: black;
+    font-size: 20px;
+    background-color: blue;
+    margin-left: 150px;
+    padding-left: 10px;
+    margin-right: 220px;
+}
+
+img{
+    border-style: ridge;
+}
+
+.texto1{
+    color: black;
+}
+
+h1{
+    color: black;
+}
+
+.division{
+    background-color:white;
+    border-style:groove;
+}
+
+.texto3{
+    color: silver;
+    font-size: 20px;
+    padding-left: 10px;
+    margin: 0;
+}
+
+.input{
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+    margin-left: 5px;
+    width: 450px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.cabecera{
+    background-color: #CEEFF2;
+}

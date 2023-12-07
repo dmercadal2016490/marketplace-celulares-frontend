@@ -1,0 +1,14 @@
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-dark p-4">
+    <a class="text-white" routerLinkActivate="active" data-bs-toggle="modal" data-bs-target="#acercaDe">Acerca de</a>
+    <a class="text-white" *ngIf="token == null" routerLink="/index" routerLinkActivate="active">Home</a>
+    <a class="text-white" *ngIf="token != null" (click)="logOut()">Cerrar Sesión</a>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
