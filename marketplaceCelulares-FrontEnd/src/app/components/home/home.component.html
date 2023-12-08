@@ -4,13 +4,13 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../../../assets/img/fondo1.jpg" class="d-block w-100" alt="...">
+          <img src="../../../assets/img/venta1.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="../../../assets/img/fondo2.jpg" class="d-block w-100" alt="...">
+          <img src="../../../assets/img/venta2.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="../../../assets/img/fondo2.jpg" class="d-block w-100" alt="...">
+          <img src="../../../assets/img/venta3.jpg" class="d-block w-100" alt="...">
         </div>
       </div>
     </div>
@@ -21,6 +21,7 @@
     <p class="text5">Precio</p>
     <p class="text6">Unidades</p>
     <hr>
+    <a class="text7" *ngIf="user.role == 'ROLE_ADMIN'" routerLink="/verTransacciones" routerLinkActivate="active">Transacciones</a>
   <div class="division2"   *ngFor="let phones of phones">  
       <p class="text1">{{phones.marca}}</p>
       <h3 class="text2">|</h3>
@@ -30,7 +31,7 @@
       <h3 class="text2">|</h3>
       <p class="text1">{{phones.unidades}}</p>
       <h3 class="text2">|</h3>
-      <button class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="obtenerData(phones)">Comprar</button>
+      <button class="btn btn-success boton" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="obtenerData(phones)">Ver Detalles</button>
   </div>
 
 
@@ -57,10 +58,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button *ngIf="user.role == 'ROLE_USER'" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#comprar">Comprar</button>
+          <button *ngIf="phone.vendedor != user._id" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#comprar">Comprar</button>
           <button *ngIf="phone.vendedor == user._id" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">Eliminar Telefono</button>
-          <button *ngIf="user.role != 'ROLE_USER'" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarCopias">Agregar copias</button>
-          <button *ngIf="user.role != 'ROLE_USER'" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#quitarCopias">Quitar copias</button>
           <button *ngIf="phone.vendedor == user._id" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imagen">Subir Imagen</button>
         </div>
       </div>

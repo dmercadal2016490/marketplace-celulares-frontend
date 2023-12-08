@@ -16,6 +16,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SavePhoneComponent } from './components/save-phone/save-phone.component';
 import { MisComprasComponent } from './components/mis-compras/mis-compras.component';
+import { MyComprasComponent } from './components/my-compras/my-compras.component';
+import { VerTransaccionesComponent } from './components/ver-transacciones/ver-transacciones.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { MisComprasComponent } from './components/mis-compras/mis-compras.compon
     RegisterComponent,
     SavePhoneComponent,
     MisComprasComponent,
+    MyComprasComponent,
+    VerTransaccionesComponent,
   ],
   imports: [
     BrowserModule,

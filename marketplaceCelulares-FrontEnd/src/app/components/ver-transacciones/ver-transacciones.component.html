@@ -1,0 +1,9 @@
+<html>
+    <br><br><p class="texto1">Transacciones Registradas</p><hr>
+    <div class="card text-center" id="cards" style="width: 18rem;" *ngFor="let transacciones of transacciones">
+        <p>Fecha: {{transacciones.fechaPublicacion}}</p>
+        <p>Tipo de transaccion: {{transacciones.tipoTransaccion}}</p>
+        <p>Telefono: {{transacciones.telefono}}</p>
+        <p>Usuario: {{transacciones.usuario}}</p>
+    </div>
+</html>

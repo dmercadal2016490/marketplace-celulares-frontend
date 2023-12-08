@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
-    this.user = JSON.parse(localStorage.getItem('user'));
+    this.user = localStorage.getItem('user');
     this.uri = CONNECTION.URI
   }
 

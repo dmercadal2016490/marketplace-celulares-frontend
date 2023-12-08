@@ -1,1 +1,11 @@
-<p>mis-compras works!</p>
+<html>
+    <br><br><p class="texto1">Mis compras</p><hr>
+    <div class="card text-center" id="cards" style="width: 18rem;" *ngFor="let compras of compras">
+        <br><p>{{compras._id}}</p>
+        <img src="../../../assets/img/QR.png"><br>
+        <p>Fecha de compra: {{compras.fechaCompra}}</p>
+        <p>Unidades: {{compras.unidadesCompradas}}</p>
+        <p>Total: Q{{compras.total}}</p>
+        <p>Telefono: {{compras.telefono}}</p>
+    </div>
+</html>

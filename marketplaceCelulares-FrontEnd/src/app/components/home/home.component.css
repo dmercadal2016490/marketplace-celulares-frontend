@@ -7,12 +7,12 @@ html{
     float: right;
     align-content: center;
     height: 80px;
-    width: 980px;
+    width: 1000px;
     background-color: aliceblue;
     display: inline-block;
     margin-top: 30px;
     margin-right: 250px;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 .division3{
@@ -76,6 +76,12 @@ html{
     padding-left: 20px;
     padding-right: 35px;
     font-size: 35px;
+    color: #08F175;
+}
+
+.text7{
+    font-family:'Franklin Gothic Medium';
+    font-size: 25px;
     color: #08F175;
 }
 

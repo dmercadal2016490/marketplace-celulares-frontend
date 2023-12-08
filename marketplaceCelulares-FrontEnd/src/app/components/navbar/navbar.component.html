@@ -1,7 +1,12 @@
 <div class="collapse" id="navbarToggleExternalContent">
   <div class="bg-dark p-4">
-    <a class="text-white" routerLinkActivate="active" data-bs-toggle="modal" data-bs-target="#acercaDe">Acerca de</a>
+    <a class="text-white" *ngIf="token != null" routerLink="/home" routerLinkActivate="active">Ver Telefonos</a>
     <a class="text-white" *ngIf="token == null" routerLink="/index" routerLinkActivate="active">Home</a>
+    <a class="text-white" *ngIf="token == null" routerLink="/register" routerLinkActivate="active">Registrar</a>
+    <a class="text-white" *ngIf="token != null" routerLink="/savePhone" routerLinkActivate="active">Publicar un telefono</a>
+    <a class="text-white" *ngIf="token != null" routerLink="/misCompras" routerLinkActivate="active">Mis Compras</a>
+    
+    <a class="text-white" *ngIf="token != null" routerLink="/user" routerLinkActivate="active">Mi perfil</a>
     <a class="text-white" *ngIf="token != null" (click)="logOut()">Cerrar Sesión</a>
   </div>
 </div>

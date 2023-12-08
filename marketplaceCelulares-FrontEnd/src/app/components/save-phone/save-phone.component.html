@@ -1,1 +1,41 @@
-<p>save-phone works!</p>
+<html>
+    <p>.</p>
+    <form class="formulario" #savePhone="ngForm" (ngSubmit)="onSubmit(savePhone)">
+        <img src="../../../assets/img/savePhone.png">
+        <h1 class="texto1">Publica tu telefono</h1><br>
+        <div class="division">
+            <p class="texto">Marca</p>
+            <input [(ngModel)]="phone.marca" name="marca" type="text">
+        </div><br>
+        <div class="division">
+            <p class="texto">Serie</p>
+            <input [(ngModel)]="phone.serie" name="serie" type="text">
+        </div><br>
+        <div class="division">
+            <p class="texto">Procesador</p>
+            <input [(ngModel)]="phone.procesador" name="procesador" type="text">
+        </div><br>
+        <div class="division">
+            <p class="texto">RAM</p>
+            <input [(ngModel)]="phone.ram" name="ram" type="number">
+        </div><br>
+        <div class="division">
+            <p class="texto">Bateria</p>
+            <input [(ngModel)]="phone.bateria" name="bateria" type="number">
+        </div><br>
+        <div class="division">
+            <p class="texto">Precio</p>
+            <input [(ngModel)]="phone.precio" name="precio" type="number" placeholder="En Quetzales">
+        </div><br>
+        <div class="division">
+            <p class="texto">Unidades</p>
+            <input [(ngModel)]="phone.unidades" name="unidades" type="number">
+        </div><br>
+        <button class="btn btn-success btn-lg" type="submit">Publicar</button><br><br>
+        <button class="btn btn-secondary btn-lg" routerLink="/home">Cancelar</button><hr>
+        <div *ngIf="message" class="alert alert-danger" role="alert">
+            {{message}} 
+        </div>
+    </form><br>
+    <h2 class="copyright">&copy;Mercadal</h2><br>
+</html>

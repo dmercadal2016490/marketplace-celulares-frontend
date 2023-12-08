@@ -73,7 +73,35 @@ export class RestPhoneService {
       'Content-Type': 'application/json',
       'Authorization': this.getToken()
     })
-    return this.http.delete(this.uri +'/deleteLibro/'+ idUser+'/'+idPhone, {headers:headers})
+    return this.http.delete(this.uri +'/deletePhone/'+ idUser+'/'+idPhone, {headers:headers})
+      .pipe(map(this.extractData))
+  }
+
+  savePhone(idUser, phone){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    })
+    let params = JSON.stringify(phone);
+    return this.http.put(this.uri +'savePhone/'+ idUser, params ,{headers:headers})
+      .pipe(map(this.extractData))
+  }
+
+  getMyCompras(idUser){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    })
+    return this.http.get(this.uri +'getMyCompras/'+ idUser,{headers:headers})
+      .pipe(map(this.extractData))
+  }
+
+  getTransacciones(/*idUser*/){
+    /*let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.getToken()
+    })*/
+    return this.http.get(this.uri +'getTrasacciones', this.httpOptions)
       .pipe(map(this.extractData))
   }
 }

@@ -9,6 +9,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SavePhoneComponent } from './components/save-phone/save-phone.component';
 import { MisComprasComponent } from './components/mis-compras/mis-compras.component';
+import { VerTransaccionesComponent } from './components/ver-transacciones/ver-transacciones.component';
 
 
 //Guards
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:'user',canActivate:[LoggedGuardGuard], component:UserComponent},
   {path:'savePhone', canActivate:[LoggedGuardGuard], component:SavePhoneComponent},
   {path: 'misCompras', canActivate:[LoggedGuardGuard], component: MisComprasComponent},
+  {path: 'verTransacciones', canActivate:[AdminGuardGuard], component: VerTransaccionesComponent},
   {path:'**', component:NotFoundComponent}
 ];
 
